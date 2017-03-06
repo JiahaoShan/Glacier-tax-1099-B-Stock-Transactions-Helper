@@ -71,7 +71,6 @@ chrome.extension.sendMessage({}, function(response) {
                         if (i > transactions.length) {
                             // to many records
                             $(tr).find("td:nth-child(8) a:nth-child(2)")[0].click();
-                            location.reload(false);
                             return;
                         }
                         var transaction = transactions[i-1];

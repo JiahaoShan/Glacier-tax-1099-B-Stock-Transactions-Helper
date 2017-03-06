@@ -1,6 +1,7 @@
 # Glacier Tax 1099-B Stock Transactions Helper
 
 Chrome extension for helping nonresident alien fill in the 1099-B stock transactions by importing transactions from local CSV file
+* Install it here: https://chrome.google.com/webstore/detail/glacier-tax-1099-b-stock/mdnkfhpikjbgedlenpdnkhnfhdaohfcm
 * Automatically validate and fill in 1099 transaction details with imported transaction details (csv)
 * CSV should follow the headers 'name,acquired,sold,proceeds,cost'
 * Tips: 

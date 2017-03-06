@@ -11,7 +11,7 @@ chrome.extension.sendMessage({}, function(response) {
         $("#helper").prepend("<div style='display:none;color:white;font-size:1.2em;padding:10px;background-color:red;' id='errorMessage'></div>");
         $("#helper").prepend("<button style='display:none;' id='process'>Start</button>");
         $("#helper").prepend("<input id='fileInput' type='file' id='input'>");
-        $("#helper").prepend("<h5 id='fileInputInfo'>Please select csv file. For more information, <a href='https://chrome.google.com/webstore/detail/glacier-tax-1099-b-stock/mdnkfhpikjbgedlenpdnkhnfhdaohfcm?hl=en-US&gl=US'>visit here</a>. </br></br> Format Example (keep headers the same and replace green parts with your own transactions): </br></br>name,acquired,sold,proceeds,cost</br><span style='color:#4db6ac'>ALPHABET INC CLASS A COMMON STOCK,10/19/2016,11/03/2016,779.07,824.52</br>TESLA MOTORS INC,12/02/2016,12/06/2016,1468.19,1460.64</span></h5>");
+        $("#helper").prepend("<h5 id='fileInputInfo'>Please select csv file. For more information, <a target='_blank' href='https://chrome.google.com/webstore/detail/glacier-tax-1099-b-stock/mdnkfhpikjbgedlenpdnkhnfhdaohfcm?hl=en-US&gl=US'>visit here</a>. </br></br> Format Example (keep headers the same and replace green parts with your own transactions): </br></br>name,acquired,sold,proceeds,cost</br><span style='color:#4db6ac'>ALPHABET INC CLASS A COMMON STOCK,10/19/2016,11/03/2016,779.07,824.52</br>TESLA MOTORS INC,12/02/2016,12/06/2016,1468.19,1460.64</span></h5>");
         $("#helper").prepend("<h4>Glacier Tax 1099-B Helper (Chrome Extension)</h4>");
 
         var fileInput = document.getElementById('fileInput');

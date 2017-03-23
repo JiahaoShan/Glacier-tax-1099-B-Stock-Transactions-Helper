@@ -1,6 +1,6 @@
 {
   "name": "Glacier tax 1099-B Stock Transactions Helper",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "manifest_version": 2,
   "description": "Help nonresident alien fill in the 1099-B stock transactions by importing transactions from local CSV file",
   "homepage_url": "https://chrome.google.com/webstore/detail/glacier-tax-1099-b-stock/mdnkfhpikjbgedlenpdnkhnfhdaohfcm?hl=en-US&gl=US",

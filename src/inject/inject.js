@@ -216,7 +216,7 @@ function validateInputFile(lines) {
         }
         inputTotalProceeds += parseFloat(lines[i][3]);
     }
-    if (inputTotalProceeds != parseFloat(getTotalProceeds())) {
+    if (inputTotalProceeds.toFixed(2) != parseFloat(getTotalProceeds()).toFixed(2)) {
         showErrorMessage("Total proceeds in the input file doesn't match the total proceeds in the 1099.");
         return false;
     }

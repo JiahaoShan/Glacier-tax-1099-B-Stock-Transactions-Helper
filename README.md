@@ -7,6 +7,7 @@ Chrome extension for helping nonresident alien fill in the 1099-B stock transact
 * Tips: 
 - You may use Excel or Numbers to edit and then select to export as CSV format
 - You may use online OCR software to help you convert non-selectable 1099 PDF to Excel
+- If you use Robinhood, you may use https://jiahaoshan.github.io/Robinhood-1099-B-Transactions-Export-Tool/ to help you export transactions to CSV.
 - Format for acquired date or sold date: MM/DD/YYYY
 
 - CSV format example 

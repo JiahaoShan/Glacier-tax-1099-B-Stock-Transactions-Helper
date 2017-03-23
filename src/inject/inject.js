@@ -222,4 +222,3 @@ function validateInputFile(lines) {
     }
     return true;
 }
-B

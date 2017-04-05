@@ -10,7 +10,7 @@ chrome.extension.sendMessage({}, function(response) {
         $("#main").prepend("<div id='helper' style='padding: 10px; border-style: solid;'></div>");
         $("#helper").prepend("<div style='display:none;color:white;font-size:1.2em;padding:10px;background-color:red;' id='errorMessage'></div>");
         $("#helper").prepend("<button style='display:none;' id='process'>Start</button>");
-        $("#helper").prepend("<input id='fileInput' type='file' id='input'>");
+        $("#helper").prepend("<input id='fileInput' type='file' id='input' accept='text/*,.csv'>");
         $("#helper").prepend("<h6>If you get Consolidated Form 1099 PDF from Robinhood, <a href='https://jiahaoshan.github.io/Robinhood-1099-B-Transactions-Export-Tool' target='_blank'>you may export it to CSV.</a></h6>");
         $("#helper").prepend("<h5 id='fileInputInfo'>Please select csv file. For more information, <a target='_blank' href='https://chrome.google.com/webstore/detail/glacier-tax-1099-b-stock/mdnkfhpikjbgedlenpdnkhnfhdaohfcm?hl=en-US&gl=US'>visit here</a>. </br></br> Format Example (keep headers the same and replace green parts with your own transactions): </br></br>name,acquired,sold,proceeds,cost</br><span style='color:#4db6ac'>ALPHABET INC CLASS A COMMON STOCK,10/19/2016,11/03/2016,779.07,824.52</br>TESLA MOTORS INC,12/02/2016,12/06/2016,1468.19,1460.64</span></h5>");
         $("#helper").prepend("<h4>Glacier Tax 1099-B Helper (Chrome Extension)</h4>");
@@ -20,9 +20,9 @@ chrome.extension.sendMessage({}, function(response) {
         fileInput.addEventListener('change', function(e) {
             if (fileInput.value == "") return;
             var file = fileInput.files[0];
-            var textType = /text.csv/;
+            var textType = /.*\.csv/;
 
-            if (file.type.match(textType)) {
+            if (file.name.match(textType)) {
                 var reader = new FileReader();
 
                 reader.onload = function(e) {

@@ -6,8 +6,8 @@
 
 
 //example of using a message handler from the inject scripts
-chrome.extension.onMessage.addListener(
-  function(request, sender, sendResponse) {
-  	chrome.pageAction.show(sender.tab.id);
-    sendResponse();
-  });
+chrome.extension.onMessage.addListener(message => {
+    console.log("background: onMessage", message);
+    return Promise.resolve("Dummy response to keep the console quiet");
+  }
+);

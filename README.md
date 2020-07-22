@@ -11,8 +11,8 @@ Chrome extension for helping nonresident alien fill in the 1099-B stock transact
 ## Installation
 
 * ~~Install it here: https://chrome.google.com/webstore/detail/glacier-tax-1099-b-stock/mdnkfhpikjbgedlenpdnkhnfhdaohfcm~~
-* This plugin has been unpublished from the Chrome Web Store because I am unable to verify this functionality any more. 
-* To use it, download this repo and install it as unpacked package. Instructions: https://stackoverflow.com/a/24577660 
+* This plugin has been unpublished from the Chrome Web Store because I am unable to verify this functionality any more.
+* To use it, download this repo and install it as unpacked package. Instructions: https://stackoverflow.com/a/24577660
 
 ## Features
 
@@ -32,6 +32,6 @@ Chrome extension for helping nonresident alien fill in the 1099-B stock transact
   <img src="https://lh3.googleusercontent.com/Jw8WK7jymMCsVztOa3IZQq3rWpo5_BRKVhKBg044jfZH30B7X54VsKtIb1iDD-Ioa9b2KVXw=s1280-h800-e365-rw">
   <img src="https://lh3.googleusercontent.com/I2z1f8Kpf6WpZlIa0Z2iRmJcxliiSp7YmYDwjk7VE1TW6fvO38SXCYoNvySe9L-BiOtcWzGCig=s1280-h800-e365-rw">
 * Live Demo
-  ![Demo](img/Glacier-Tax-Prep-Form-1099-B-Stock-Transactions-Importer.gif)
+  ![Live Demo](img/Glacier-Tax-Prep-Form-1099-B-Stock-Transactions-Importer-v0.3.2.gif)
 
 * Disclaimer: This is NOT an official app from Glacier Tax.

@@ -4,13 +4,17 @@ chrome.extension.sendMessage({}, function(response) {
     if (document.readyState === "complete") {
         clearInterval(readyStateCheckInterval);
 
-        var payorIds = getPayorIds();
-        var payorId = payorIds.length == 1 ? payorIds[0] : "";
-
-        var css = document.createElement("style");
+        var css = document.createElement('style');
         css.type = "text/css";
-        css.innerHTML = ".myInput {margin-left: 20px;}";
+        css.innerHTML = '.myInput {margin-left: 20px;}';
         document.body.appendChild(css);
+
+        var payorIds = getPayorIds();
+        var options = `<option value='' selected>Select Payor ID (EIN)</option>\n`;
+        for (let id of payorIds) {
+            options += `<option value='${id}'>${id}</option>\n`;
+        }
+
         var importerHTML = `
             <div id='helper'>
                 <h2>Glacier Tax Prep Form 1099-B Stock Transactions Importer</h2>
@@ -18,12 +22,12 @@ chrome.extension.sendMessage({}, function(response) {
                     <legend>Instruction</legend>
                     <ol>
                         <li>
-                            Have all the 1099-B added in the previous page.
+                            Add 1099-B forms in the previous page.
                             If you get Consolidated Form 1099 PDF from Robinhood, <a href='https://jiahaoshan.github.io/Robinhood-1099-B-Transactions-Export-Tool' target='_blank'>you may export it to .csv file</a>.
                         </li>
-                        <li>Enter a valid Payor ID (EIN).</li>
+                        <li>Select a desired Payor ID (EIN) in the dropdown list.</li>
                         <li>
-                            Choose the corresponding .csv file. Make sure your .csv file follow the format strictly as below: </br>
+                            Choose the corresponding local .csv file. Make sure your .csv file follow the format strictly as below: </br>
                             name,acquired,sold,proceeds,cost</br>
                             ALPHABET INC CLASS A COMMON STOCK,10/19/2016,11/03/2016,779.07,824.52</br>
                             TESLA MOTORS INC,12/02/2016,12/06/2016,1468.19,1460.64
@@ -41,8 +45,13 @@ chrome.extension.sendMessage({}, function(response) {
                     </ul>
                 </fieldset>
                 <fieldset>
-                    <legend>Enter Payor ID (EIN) and Choose Corresponding .csv File</legend>
-                    <span class='myInput'>Payor ID (EIN): <input type='text' placeholder='Please Enter Payor ID (EIN)' id='payorId' value=${payorId}></span>
+                    <legend>Select Payor ID (EIN) and Choose .csv File</legend>
+                    <span class='myInput'>
+                        <label for="payorId">Payor ID (EIN): </label>
+                        <select name="payorId" id="payorId">
+                            ${options}
+                        </select>
+                    </span>
                     <span class='myInput'><input id='fileInput' type='file' id='input' accept='text/*,.csv'></span>
                     <span class='myInput'><button style='display:none;' id='process'>Start</button></span>
                     <span class='myInput' style='display:none;color:white;font-size:1.2em;background-color:red;' id='errorMessage'></span>
@@ -52,7 +61,7 @@ chrome.extension.sendMessage({}, function(response) {
         $("#main").prepend(importerHTML);
 
         var fileInput = document.getElementById('fileInput');
-        payorId = document.getElementById("payorId");
+        var payorId = document.getElementById("payorId");
 
         payorId.addEventListener('focusout', function(e) {
             $("#errorMessage").hide();
@@ -127,7 +136,7 @@ chrome.extension.sendMessage({}, function(response) {
                     }
                 }
             } else if (items.status == 'done') {
-                $("#errorMessage").css("background-color","green").html("Imported " + file + " successfully!");
+                $("#errorMessage").css("background-color","green").html(`SUCCESS: Imported .csv file for Payor ID ${payorId}.`);
                 $("#errorMessage").show();
             }
         });
@@ -154,7 +163,6 @@ function resetStatus() {
         var file = items.file;
 
         if (status == 'done' && index > 0) {
-            console.log(index);
             status = 'not ready';
             chrome.storage.local.set({ 'transactions': transactions, 'status' : status, 'payorId': payorId, 'index': 0, 'file': file}, function() {
                 console.log('Reset status to "not ready".');
@@ -221,7 +229,7 @@ function processData(allText) {
     return validateInputFile(lines) ? lines : false;
 }
 
-function hideErrorMessage()    {
+function hideErrorMessage() {
     $("#errorMessage").hide();
 }
 
